@@ -1,26 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'; 
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+import { IonApp, IonSplitPane, IonPage } from '@ionic/react';
+
+import Menu from './components/Menu/Menu';
+import Tabs from './pages/Tabs/Tabs';
+import './theme.css';
+import '@ionic/core/css/core.css';
+import '@ionic/core/css/ionic.bundle.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div id="App">
+          <IonApp>
+            <IonSplitPane contentId="main">
+              <Menu />
+              <IonPage id="main">
+                <Route path="/" component={Tabs} />
+              </IonPage>
+            </IonSplitPane>
+          </IonApp>
+        </div>
+      </Router>
     );
   }
 }

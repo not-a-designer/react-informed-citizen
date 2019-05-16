@@ -1,0 +1,7 @@
+.IonMenu {
+    --min-width: 320px;
+}
+.IonCard {
+    max-width: 150px;
+    margin: 0 auto;
+}

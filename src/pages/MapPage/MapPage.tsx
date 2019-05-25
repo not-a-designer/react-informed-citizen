@@ -12,7 +12,7 @@ import { IonHeader,
          IonLabel, 
          IonSearchbar,
          IonButton,
-         IonSpinner} from '@ionic/react';
+         IonLoading} from '@ionic/react';
 
 import axios from 'axios';
 
@@ -151,18 +151,15 @@ class MapPage extends Component {
                 </IonHeader>
 
                 <IonContent>
-                    {!this.state.isLoading ? (
-                        <MapComponent 
-                            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCG7jwYwhPvLKDRESqjFcwT4-W4jSSzw4c&libraries=places`}
-                            loadingElement={<div style={{height: '100%'}} />}
-                            mapElement={<div style={{height: '100%'}} />}
-                            containerElement={<div style={{height: '100%'}} />}
-                            center={this.state.defaultCenter} 
-                            zoom={this.state.defaultZoom} 
-                            markers={this.state.markers} />
-                    ) : (
-                        <IonSpinner class={classes.IonSpinner} name="circles" />
-                    )}
+                    <IonLoading isOpen={this.state.isLoading} message="loading markers" onDidDismiss={() => {}} />
+                    <MapComponent 
+                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCG7jwYwhPvLKDRESqjFcwT4-W4jSSzw4c&libraries=places`}
+                        loadingElement={<div style={{height: '100%'}} />}
+                        mapElement={<div style={{height: '100%'}} />}
+                        containerElement={<div style={{height: '100%'}} />}
+                        center={this.state.defaultCenter} 
+                        zoom={this.state.defaultZoom} 
+                        markers={this.state.markers} />
                 </IonContent>
             </IonPage>
         )

@@ -1,7 +1,6 @@
 import React, { Component, RefObject, createRef } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
-import { IonSpinner } from '@ionic/react';
+import { IonSpinner, IonLoading } from '@ionic/react';
 
 
 class MapComponent extends Component<any, any> {
